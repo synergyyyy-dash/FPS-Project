@@ -7,6 +7,7 @@ public class Gun : MonoBehaviour
     public float reloadTime = 1f;
     public float fireRate = 0.15f;
     public int maxSize = 20;
+    public GameObject droppedWeapon;
 
     // Bullet & spawn point
     public GameObject bullet;
@@ -123,6 +124,13 @@ public class Gun : MonoBehaviour
         }
 
         transform.localPosition = initialPosition;
+    }
+
+    public void Drop()
+    {
+        Instantiate(droppedWeapon, transform.position, transform.rotation);
+
+        Destroy(gameObject);
     }
 
 }

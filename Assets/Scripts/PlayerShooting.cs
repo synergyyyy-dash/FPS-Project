@@ -6,6 +6,7 @@ public class PlayerShooting : MonoBehaviour
 {
     public Gun gun;
     private bool isHoldingShoot;
+    public Transform gunHolder;
 
     void OnShoot()
     {
@@ -26,6 +27,15 @@ public class PlayerShooting : MonoBehaviour
     void Start()
     {
         
+    }
+
+    public void OnDrop()
+    {
+        if (gun != null)
+        {
+            gun.Drop();
+            gun = null;
+        }
     }
 
     // Update is called once per frame
